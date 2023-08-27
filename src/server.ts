@@ -43,7 +43,8 @@ initService().then(async ({ redis, mongoose}) => {
     }).get('/api/get_data_from_redis', async(ctx) => {
         const key = ctx.query.key as string;
         assert(key?.trim(), `key is required`);
-        const value = await redis.get(key);
+        // const value = await redis.get(key);
+        const value = null
         if (value) {
             ctx.body = {
                 success: true,
@@ -62,14 +63,15 @@ initService().then(async ({ redis, mongoose}) => {
         const value = body.value as string;
         assert(key?.trim(), `key is required`);
         assert(value?.trim(), `value is required`);
-        await redis.set(key, value);
+        // await redis.set(key, value);
         ctx.body = {
             success: true,
         }
     }).get('/api/get_data_from_mongodb', async(ctx) => {
         const name = ctx.query.name as string;
         assert(name?.trim(), `name is required`);
-        const data = await Kitten.findOne({ name});
+        // const data = await Kitten.findOne({ name});
+        const data = null
         
         if (data) {
             ctx.body = {
@@ -87,8 +89,8 @@ initService().then(async ({ redis, mongoose}) => {
         const name = ctx.query.name as string;
         assert(name?.trim(), `name is required`);
 
-        const kit = new Kitten({ name });
-        await kit.save();
+        // const kit = new Kitten({ name });
+        // await kit.save();
 
         ctx.body = {
             success: true,
