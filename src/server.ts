@@ -23,8 +23,8 @@ async function initService() {
     // await mongoose.connect(mongoUrl);    
 
     return {
-        redis:()=>{},
-        mongoose:()=>{},
+        redis:{},
+        mongoose:{},
     }
 }
 
