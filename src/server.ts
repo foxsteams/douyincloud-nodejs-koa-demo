@@ -7,24 +7,24 @@ import assert from "assert";
 
 // 初始化各服务的连接 redis, mongo
 async function initService() {
-    const {REDIS_ADDRESS, REDIS_USERNAME, REDIS_PASSWORD, MONGO_ADDRESS, MONGO_USERNAME, MONGO_PASSWORD} = process.env;
-    const [ REDIS_HOST, REDIS_PORT] = REDIS_ADDRESS.split(':');
-    const redis = new Redis({
-        port: parseInt(REDIS_PORT, 10),
-        host: REDIS_HOST,
-        username: REDIS_USERNAME,
-        password: REDIS_PASSWORD,
-        db: 0,
-    });
+    // const {REDIS_ADDRESS, REDIS_USERNAME, REDIS_PASSWORD, MONGO_ADDRESS, MONGO_USERNAME, MONGO_PASSWORD} = process.env;
+    // const [ REDIS_HOST, REDIS_PORT] = REDIS_ADDRESS.split(':');
+    // const redis = new Redis({
+    //     port: parseInt(REDIS_PORT, 10),
+    //     host: REDIS_HOST,
+    //     username: REDIS_USERNAME,
+    //     password: REDIS_PASSWORD,
+    //     db: 0,
+    // });
 
-    assert(await redis.echo('echo') === 'echo', `redis echo error`);
+    // assert(await redis.echo('echo') === 'echo', `redis echo error`);
 
-    const mongoUrl = `mongodb://${MONGO_USERNAME}:${encodeURIComponent(MONGO_PASSWORD)}@${MONGO_ADDRESS}`;
-    await mongoose.connect(mongoUrl);    
+    // const mongoUrl = `mongodb://${MONGO_USERNAME}:${encodeURIComponent(MONGO_PASSWORD)}@${MONGO_ADDRESS}`;
+    // await mongoose.connect(mongoUrl);    
 
     return {
-        redis,
-        mongoose,
+        redis:()=>{},
+        mongoose:()=>{},
     }
 }
 
