@@ -76,7 +76,7 @@ initService().then(async ({ redis, mongoose}) => {
         if (data) {
             ctx.body = {
                 success: true,
-                data: data.toJSON(),
+                data: {},
             }
         } else {
             ctx.status = 404;
