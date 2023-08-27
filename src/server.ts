@@ -44,7 +44,7 @@ initService().then(async ({ redis, mongoose}) => {
         const key = ctx.query.key as string;
         assert(key?.trim(), `key is required`);
         // const value = await redis.get(key);
-        const value = null
+        let value;
         if (value) {
             ctx.body = {
                 success: true,
@@ -71,7 +71,7 @@ initService().then(async ({ redis, mongoose}) => {
         const name = ctx.query.name as string;
         assert(name?.trim(), `name is required`);
         // const data = await Kitten.findOne({ name});
-        const data = null
+        let data ;
         
         if (data) {
             ctx.body = {
