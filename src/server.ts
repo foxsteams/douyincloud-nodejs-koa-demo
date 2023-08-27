@@ -29,11 +29,11 @@ async function initService() {
 }
 
 initService().then(async ({ redis, mongoose}) => {
-    const kittySchema = new mongoose.Schema({
-        name: String
-    });
+    // const kittySchema = new mongoose.Schema({
+    //     name: String
+    // });
 
-    const Kitten = mongoose.model('Kitten', kittySchema);
+    // const Kitten = mongoose.model('Kitten', kittySchema);
 
     const app = new Koa();
 
